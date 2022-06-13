@@ -1,18 +1,44 @@
 <?php
 if(isset($_POST['submit'])){
-    $username = //finish this line
-    $password = //finish this
+    $email = $_POST['email'];
+    $password = $_POST['password'];
 
 loginUser($email, $password);
 
 }
 
 function loginUser($email, $password){
-    /*
-        Finish this function to check if username and password 
-    from file match that which is passed from the form
-    */
+    
+  
+  if (($open = fopen("../storage/users.csv", "r")) !== FALSE) 
+  {
+  
+    if (($data = fgetcsv($open, 1000, ",")) !== FALSE) 
+    {    
+        
+        $username = $data[0];
+        $email_saved = $data[1];
+        $password_saved = $data[2];
+
+
+       
+    }
+  
+    fclose($open);
+  }
+
+  if($email==$email_saved && $password==$password_saved){
+
+    $_SESSION['username'] = $username;
+
+header("Location: ../dashboard.php");
+  }
+
+  else{
+
+    header("Location: ../forms/login.html");
+
 }
 
-echo "HANDLE THIS PAGE";
+}
 
