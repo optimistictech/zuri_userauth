@@ -1,10 +1,12 @@
 <?php
+logout();
+
 function logout(){
-    /*
-Check if the existing user has a session
-if it does
-destroy the session and redirect to login page
-*/
+
+
+    unset($_SESSION['username']);
+
+    header("Location: ../forms/login.html");
+
 }
 
-echo "HANDLE THIS PAGE";

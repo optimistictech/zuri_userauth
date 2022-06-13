@@ -26,6 +26,7 @@
 </nav>
 <div class="container justify-content-center">
      <h1 class="">Welcome to Zuri Authentication `USERNAME`</h1>
+
 </div>
    
 </body>
